@@ -21,9 +21,7 @@
                     </a>
                   </td>
                   <td>
-                    <a href="/ips/{{ $ip->id}}">
-                      {{ $ip->local }}
-                    </a>
+                    {{ $ip->local }}
                   </td>
                 @endforeach
               </table>
