@@ -44,7 +44,7 @@ class IpController extends Controller
      */
     public function store(Request $request)
     {
-        $ip = new Ip;
+        //$ip = new Ip;
         // $ip->local = request('local');
         // $ip->ip = request('rangeips');
         // $ip->save();
