@@ -18,6 +18,14 @@ class IpController extends Controller
       return view('ips.index', compact('ips'));
     }
 
+    public function search()
+    {
+      $search = request('search');
+      $ips = Ip::Nome($search)->get();
+      //dd($ips);
+      return view('ips.index', compact('ips'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +33,7 @@ class IpController extends Controller
      */
     public function create()
     {
-        //
+        return view('ips.create');
     }
 
     /**
@@ -36,7 +44,15 @@ class IpController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ip = new Ip;
+        // $ip->local = request('local');
+        // $ip->ip = request('rangeips');
+        // $ip->save();
+        Ip::create([
+          'local' => request('local'),
+          'ip' => request('rangeips')
+        ]);
+        return redirect('/');
     }
 
     /**
@@ -45,10 +61,13 @@ class IpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ip $id) //tem que ser o mesmo nome do wildcard da URI
     {
-      $ip = Ip::find($id);
-      return view('ips.show', compact('ip'));
+      return view('ips.show', compact('id'));
+      //equivalente a
+      //public function show($id)
+      //$ip = Ip::find($id);
+      //return $id;
     }
 
     /**
