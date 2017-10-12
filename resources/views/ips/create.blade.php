@@ -5,12 +5,27 @@
     {{ csrf_field() }}
     <div class="form-group">
       <label for="InputLocal">Local</label>
-      <input type="text" maxlength="80" class="form-control" id="InputLocal" placeholder="Local" name="local">
+      <input type="text" maxlength="80" class="form-control" id="InputLocal" autofocus placeholder="Local" name="local" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
+      oninput="setCustomValidity('')" required>
     </div>
     <div class="form-group">
       <label for="InputIp">Range de Ips</label>
-      <input type="text" maxlength="18" class="form-control" id="InputIp" placeholder="Range de Ips" name="rangeips">
+      <input type="text" maxlength="18" class="form-control" id="InputIp" placeholder="Range de Ips" name="ip" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
+      oninput="setCustomValidity('')" required>
     </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-  </form>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </div>
+    @if(count($errors))
+      <div class="form-group"
+      <div class="alert alert-danger">
+        <ul>
+          @foreach($errors->all() as $error)
+            <li> {{ $error }} </li>
+          @endforeach
+        </ul>
+      </div>
+    </div>
+  @endif
+</form>
 @endsection

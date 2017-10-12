@@ -48,9 +48,15 @@ class IpController extends Controller
         // $ip->local = request('local');
         // $ip->ip = request('rangeips');
         // $ip->save();
+        //$this->validate($request, $rules [, $messages, $customAttributes])
+        //'required|unique:tbl_name';
+        $this->validate(request(), [
+          'local' => 'required',
+          'ip' => 'required|unique:ips'
+      ]);
         Ip::create([
           'local' => request('local'),
-          'ip' => request('rangeips')
+          'ip' => request('ip')
         ]);
         return redirect('/');
     }

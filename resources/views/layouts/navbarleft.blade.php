@@ -1,5 +1,17 @@
+<script type="text/javascript" src="{{ asset('js/Mousetrap.js') }}"></script>
+<script>
+Mousetrap.bind('c', function() {
+  //console.log("Tecla C");
+  document.getElementById('menu2').click();
+});
+Mousetrap.bind('v', function() {
+  //console.log("Tecla V");
+  document.getElementById('menu1').click();
+});
+</script>
 <script>
 window.onload = function() {
+
   console.log(window.location.href);
   curr=window.location.href;
   if (curr.indexOf("/ips/create") !=-1) {

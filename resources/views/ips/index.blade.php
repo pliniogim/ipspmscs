@@ -14,7 +14,7 @@
               </a>
             </td>
             <td>
-              {{ $ip->local }}
+              {{  $ip->local }}
             </td>
           @endforeach
         </table>
