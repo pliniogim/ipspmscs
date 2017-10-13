@@ -14,7 +14,9 @@ class IpController extends Controller
      */
     public function index()
     {
-      $ips = Ip::all();
+      //Project::orderByDesc('name')->get();
+      //$ips = Ip::all(); setar preferencia
+      $ips = Ip::orderBy('local')->get();
       return view('ips.index', compact('ips'));
     }
 

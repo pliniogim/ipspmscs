@@ -6,7 +6,9 @@
   <title>IPS PMSCS</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ URL::asset('/css/bootstrap.min.css') }}">
+  <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
   <!-- Custom styles for this template -->
-  <link href="/css/dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ URL::asset('/css/dashboard.css') }}">
+  <!-- <link href="/css/dashboard.css" rel="stylesheet"> -->
 </head>
