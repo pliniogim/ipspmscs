@@ -12,6 +12,9 @@ class IpController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct(){
+       $this->middleware('auth')->except(['index', 'show', 'search']);
+     }
     public function index()
     {
       //Project::orderByDesc('name')->get();
@@ -23,7 +26,7 @@ class IpController extends Controller
     public function search()
     {
       $search = request('search');
-      $ips = Ip::Nome($search)->get();
+      $ips = Ip::Nome($search)->orderBy('ip')->get();
       //dd($ips);
       return view('ips.index', compact('ips'));
     }
@@ -54,11 +57,14 @@ class IpController extends Controller
         //'required|unique:tbl_name';
         $this->validate(request(), [
           'local' => 'required',
-          'ip' => 'required|unique:ips'
+          'ip' => 'required|unique:ips',
+          'endereco' => 'required'
       ]);
         Ip::create([
           'local' => request('local'),
-          'ip' => request('ip')
+          'ip' => request('ip'),
+          'endereco' => request('endereco'),
+          'user_id' => auth()->id()
         ]);
         return redirect('/');
     }

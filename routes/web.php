@@ -1,10 +1,17 @@
 <?php
 Route::get('/', 'IpController@index')->name('home');
+Route::get('/home', 'IpController@index');
 Route::post('/', 'IpController@search');
 //Route::get('/ips','IpController@index');
 Route::get('ips/create', 'IpController@create')->name('cadastro');
 Route::get('/ips/{id}', 'IpController@show');
 Route::post('/ips', 'IpController@store');
+Route::post('/ips/{id}/infos', 'InfoController@store');
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+Route::get('/login', 'SessionsController@create')->name('login');
+Route::post('/login', 'SessionsController@store');
+Route::get('/logout', 'SessionsController@destroy');
 //use App\Ip;
 /*Route::get('/ips', function () {
 //$ips = DB::table('ips')->get();

@@ -17,6 +17,9 @@ class CreateIpsTable extends Migration
             $table->increments('id');
             $table->string('local');
             $table->string('ip')->unique();
+            $table->timestamps();
+            $table->string('endereco');
+            $table->integer('user_id');
         });
     }
 

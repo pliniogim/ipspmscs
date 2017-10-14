@@ -41,10 +41,15 @@ function mudaMenuAtivo(curr){
       <li class="nav-item">
         <a id="menud" class="nav-link" href="#" onclick="mudaMenuAtivo('menud')">Ajuda</a>
       </li>
+      <li class="nav-item">
+        @if(Auth::check())
+          <a id="menue" class="nav-link ml-auto" href="#" >Logado como: {{ auth()->user()->nome }} </a>
+        @endif
+      </li>
     </ul>
     <form class="form-inline mt-2 mt-md-0" method="POST" action="/">
       {{ csrf_field() }}
-      <input class="form-control mr-sm-2" type="text" placeholder="Procurar" aria-label="Procurar" name="search">
+      <input class="form-control mr-sm-2" type="text" aria-label="Procurar" name="search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
     </form>
   </div>
