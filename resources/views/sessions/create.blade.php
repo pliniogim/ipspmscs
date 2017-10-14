@@ -6,7 +6,7 @@
       {{ csrf_field() }}
       <div class="form-group">
         <label for="InputEmail">Email</label>
-        <input type="email" maxlength="255" class="form-control" id="InputEmail"  name="email" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
+        <input type="email" maxlength="255" class="form-control" id="InputEmail"  autofocus name="email" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
         oninput="setCustomValidity('')" required>
       </div>
       <div class="form-group">

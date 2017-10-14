@@ -2,15 +2,18 @@
 @section('conteudo')
   <div class="flex-center position-ref full-height">
     <div class="content">
+      <h6>Dados</h6>
       <table>
         <tr><td>{{ $id->local }}</td></tr>
         <tr><td>Endereço: {{ $id->endereco }}</td></tr>
         <tr><td>Range de IPS: {{ $id->ip }}</td></tr>
       </table>
+      <br>
+      <h6>Informações</h6>
       <div class="flex-center position-ref full-height">
         <table>
           @foreach ($id->infos as $info)
-            <tr><td> {{ $info->info }} </td></tr>
+            <tr><td> {{ $info->updated_at }}:  {{ $info->info }} </td></tr>
           @endforeach
         </table>
       </div>

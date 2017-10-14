@@ -13,7 +13,8 @@ class InfoController extends Controller
       $this->validate(request(),['info' => 'required|min:5' ]);
       Info::create([
         'info' => request('info'),
-        'ip_id' => $id
+        'ip_id' => $id,
+        'user_id' => auth()->id()
       ]);
       return back();
     }

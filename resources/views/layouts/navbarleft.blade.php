@@ -52,10 +52,10 @@ function mudaAtivo(curr){
       <a id="menu2" class="nav-link" href="{{ route('cadastro') }}" onclick="mudaAtivo('menu2')">Cadastramento</a>
     </li>
     <li class="nav-item">
-      <a id="menu3" class="nav-link" href="#" onclick="mudaAtivo('menu3')">Relatórios</a>
+      <a id="menu3" class="nav-link" href="#" onclick="mudaAtivo('menu3')">Exportar</a>
     </li>
     <li class="nav-item">
-      <a id="menu4" class="nav-link" href="#" onclick="mudaAtivo('menu4')">Exportar</a>
+      <a id="menu4" class="nav-link" href="#" onclick="mudaAtivo('menu4')">Relatórios</a>
     </li>
   </ul>
 </nav>

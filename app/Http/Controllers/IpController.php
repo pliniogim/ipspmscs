@@ -13,7 +13,7 @@ class IpController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function __construct(){
-       $this->middleware('auth')->except(['index', 'show', 'search']);
+       $this->middleware('auth')->except(['index', 'search']);
      }
     public function index()
     {

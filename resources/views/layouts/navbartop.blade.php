@@ -23,7 +23,7 @@ function mudaMenuAtivo(curr){
 }
 </script>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Ips PMSCS</a>
+  <a class="navbar-brand" href="/home">Ips PMSCS</a>
   <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -36,14 +36,30 @@ function mudaMenuAtivo(curr){
         <a id="menub" class="nav-link" href="#" onclick="mudaMenuAtivo('menub')">Preferências</a>
       </li>
       <li class="nav-item">
-        <a id="menuc" class="nav-link" href="#" onclick="mudaMenuAtivo('menuc')">Perfil</a>
+        <a id="menuc" class="nav-link" href="#" onclick="mudaMenuAtivo('menuc')">Ajuda</a>
       </li>
       <li class="nav-item">
-        <a id="menud" class="nav-link" href="#" onclick="mudaMenuAtivo('menud')">Ajuda</a>
+        <a id="menud" class="nav-link" href="/login" onclick="mudaMenuAtivo('menud')">Login</a>
       </li>
+      <li class="nav-item">
+        <a id="menue" class="nav-link" href="/register" onclick="mudaMenuAtivo('menue')">Registrar-se</a>
+      </li>
+
       <li class="nav-item">
         @if(Auth::check())
           <a id="menue" class="nav-link ml-auto" href="#" >Logado como: {{ auth()->user()->nome }} </a>
+          <script>
+            document.getElementById("menud").onclick=function (){ return confirm('Você deseja fazer o logout?'); };
+            document.getElementById("menud").innerHTML="Logout";
+            document.getElementById("menud").href="/logout";
+            document.getElementById("menue").style.visibility="hidden";
+          </script>
+        @else
+          <script>
+            document.getElementById("menud").innerHTML="Login";
+            document.getElementById("menud").href="/login";
+            document.getElementById("menue").style.visibility="visible";
+          </script>
         @endif
       </li>
     </ul>
