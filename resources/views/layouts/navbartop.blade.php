@@ -5,21 +5,7 @@ function mudaMenuAtivo(curr){
   document.getElementById("menub").className = "nav-link";
   document.getElementById("menuc").className = "nav-link";
   document.getElementById("menud").className = "nav-link";
-  switch (curr) {
-    case "menua":
-    document.getElementById("menua").className = "nav-link active";
-    break;
-    case "menub":
-    document.getElementById("menub").className = "nav-link active";
-    break;
-    case "menuc":
-    document.getElementById("menuc").className = "nav-link active";
-    break;
-    case "menud":
-    document.getElementById("menud").className = "nav-link active";
-    break;
-    default:
-  }
+  document.getElementById(curr).className = "nav-link active";
 }
 </script>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -36,7 +22,7 @@ function mudaMenuAtivo(curr){
         <a id="menub" class="nav-link" href="#" onclick="mudaMenuAtivo('menub')">Preferências</a>
       </li>
       <li class="nav-item">
-        <a id="menuc" class="nav-link" href="#" onclick="mudaMenuAtivo('menuc')">Ajuda</a>
+        <a id="menuc" class="nav-link" href="/ajuda" onclick="mudaMenuAtivo('menuc')">Ajuda</a>
       </li>
       <li class="nav-item">
         <a id="menud" class="nav-link" href="/login" onclick="mudaMenuAtivo('menud')">Login</a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ip;
+Use DB;
 
 class IpController extends Controller
 {
@@ -17,18 +18,21 @@ class IpController extends Controller
      }
     public function index()
     {
-      //Project::orderByDesc('name')->get();
-      //$ips = Ip::all(); setar preferencia
-      $ips = Ip::orderBy('local')->get();
+      $ips = Ip::all()->sortBy('ip', SORT_NATURAL, false);
       return view('ips.index', compact('ips'));
     }
 
     public function search()
     {
       $search = request('search');
-      $ips = Ip::Nome($search)->orderBy('ip')->get();
-      //dd($ips);
-      return view('ips.index', compact('ips'));
+      $ips = Ip::Nome($search)->orderBy('local')->get();
+      if(!$ips->count()){
+        return back () -> withErrors ([
+          'Message' => 'Pesquisa por [ ' .$search. ' ] não retornou resultado.'
+        ]);
+      } else {
+        return view('ips.index', compact('ips'));
+      }
     }
 
     /**

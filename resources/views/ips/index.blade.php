@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('conteudo')
   <h2>Visão geral</h2>
+  @include('layouts.errors')
   <div class="flex-center position-ref full-height">
     <div class="content">
       <script>
