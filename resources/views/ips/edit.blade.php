@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('conteudo')
-  <h2>Editar IPs (local e endereço)</h2>
+  <h2>Editar Ips (local e endereço)</h2>
   <form method="POST" action="{{action('IpController@update', $id)}}">
     {{ csrf_field() }}
     <div class="form-group">

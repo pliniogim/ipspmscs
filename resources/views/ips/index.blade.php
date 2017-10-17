@@ -1,9 +1,7 @@
 @extends('layouts.master')
 @section('conteudo')
-  <h2>Visão geral</h2>
+  <h2>Home</h2>
   @include('layouts.errors')
-  <div class="flex-center position-ref full-height">
-    <div class="content">
       <script>
         document.getElementById("menu1").className = "nav-link active";
       </script>
@@ -27,6 +25,4 @@
           @endforeach
         </tbody>
         </table>
-      </div>
-    </div>
   @endsection

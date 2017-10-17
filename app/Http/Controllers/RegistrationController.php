@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
+  public function __construct(){
+    $this->middleware('auth');
+  }
   public function create()
   {
       return view('registration.create');
@@ -24,7 +27,7 @@ class RegistrationController extends Controller
       'password' => bcrypt(request('password')),
       'perfil' => request('perfil')
     ]);
-    auth()->login($user);
-    return redirect()->home();
+    //auth()->login($user);
+    return redirect('users');
   }
 }

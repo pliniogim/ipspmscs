@@ -3,7 +3,9 @@
 @include('layouts.head')
 <body>
   @include('layouts.navbartop')
-  @include('layouts.navbarleft')
+  @if(Auth::check())
+    @include('layouts.navbarleft')
+  @endif
   <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
     @yield('conteudo')
   </body>

@@ -18,4 +18,19 @@ class InfoController extends Controller
       ]);
       return back();
     }
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+   public function destroy($id)
+   {
+     $info = Info::find($id);
+     $info->delete();
+     return back()->with('success', 'Info foi deletada com sucesso!');
+   }
+   public function edit($id){
+
+   }
 }

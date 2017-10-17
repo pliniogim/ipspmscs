@@ -1,13 +1,12 @@
 <?php
-Route::get('/', 'IpController@index');
+Route::get('/', 'IpController@index')->name('index');
 Route::get('/home', 'IpController@home')->name('home');
 Route::post('/', 'IpController@search');
-//Route::get('/ips','IpController@index');
-Route::get('ips/create', 'IpController@create')->name('cadastroip');
+Route::get('/ips/create', 'IpController@create')->name('cadastroip');
 Route::get('/ips/{id}', 'IpController@show');
 Route::post('/ips', 'IpController@store');
 Route::post('/ips/{id}/infos', 'InfoController@store');
-Route::get('/register', 'RegistrationController@create');
+Route::get('/register', 'RegistrationController@create')->name('register');
 Route::post('/register', 'RegistrationController@store');
 Route::get('/login', 'SessionsController@create')->name('login');
 Route::post('/login', 'SessionsController@store');
@@ -16,6 +15,11 @@ Route::get('/ajuda', 'AjudaController@index');
 Route::get('/edit/{id}', 'IpController@edit');
 Route::post('/edit/{id}','IpController@update');
 Route::delete('/delete/{id}','IpController@destroy');
+Route::delete('/ips/{id}/delete','InfoController@destroy');
+Route::get('/users', 'UserController@index')->name('users');
+Route::get('/users/edit/{id}', 'UserController@edit');
+Route::post('users/edit/{id}','UserController@update');
+Route::delete('/users/delete/{id}','UserController@destroy');
 //use App\Ip;
 /*Route::get('/ips', function () {
 //$ips = DB::table('ips')->get();
