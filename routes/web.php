@@ -1,6 +1,6 @@
 <?php
-Route::get('/', 'IpController@index')->name('home');
-Route::get('/home', 'IpController@index');
+Route::get('/', 'IpController@index');
+Route::get('/home', 'IpController@home')->name('home');
 Route::post('/', 'IpController@search');
 //Route::get('/ips','IpController@index');
 Route::get('ips/create', 'IpController@create')->name('cadastroip');
@@ -13,6 +13,9 @@ Route::get('/login', 'SessionsController@create')->name('login');
 Route::post('/login', 'SessionsController@store');
 Route::get('/logout', 'SessionsController@destroy');
 Route::get('/ajuda', 'AjudaController@index');
+Route::get('/edit/{id}', 'IpController@edit');
+Route::post('/edit/{id}','IpController@update');
+Route::delete('/delete/{id}','IpController@destroy');
 //use App\Ip;
 /*Route::get('/ips', function () {
 //$ips = DB::table('ips')->get();

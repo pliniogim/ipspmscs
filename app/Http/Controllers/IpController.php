@@ -21,6 +21,11 @@ class IpController extends Controller
       $ips = Ip::all()->sortBy('ip', SORT_NATURAL, false);
       return view('ips.index', compact('ips'));
     }
+    public function home()
+    {
+      $ips = Ip::all()->sortBy('ip', SORT_NATURAL, false);
+      return view('ips.home', compact('ips'));
+    }
 
     public function search()
     {
@@ -70,7 +75,7 @@ class IpController extends Controller
           'endereco' => request('endereco'),
           'user_id' => auth()->id()
         ]);
-        return redirect('/');
+        return redirect('/home');
     }
 
     /**
@@ -94,9 +99,9 @@ class IpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(IP $id)
     {
-        //
+      return view('ips.edit', compact('id'));
     }
 
     /**
@@ -108,7 +113,18 @@ class IpController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $ip = new Ip();
+      $data =$this->validate(request(), [
+        'local' => 'required',
+        'endereco' => 'required'
+      ]);
+        $data['id'] = $id;
+        $ip = Ip::find($id);
+        $ip->user_id = auth()->user()->id;
+        $ip->local = $data['local'];
+        $ip->endereco = $data['endereco'];
+        $ip->save();
+        return redirect('/home')->with('success', 'O ip foi alterado com sucesso!');
     }
 
     /**
@@ -119,6 +135,8 @@ class IpController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $ip = Ip::find($id);
+      $ip->delete();
+      return redirect('/home')->with('success', 'Ip foi deletado com sucesso!');
     }
 }

@@ -8,8 +8,14 @@
         document.getElementById("menu1").className = "nav-link active";
       </script>
       <table>
+        <tr>
+          <thead>
+            <td>IP</td>
+            <td>Local</td>
+        </tr>
+        </thead>
         @foreach($ips as $ip)
-          <tr>
+            <tbody>
             <td>
               <a href="/ips/{{ $ip->id}}">
                 {{ $ip->ip }}
@@ -19,6 +25,7 @@
               {{  $ip->local }}
             </td>
           @endforeach
+        </tbody>
         </table>
       </div>
     </div>

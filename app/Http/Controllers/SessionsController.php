@@ -15,7 +15,7 @@ class SessionsController extends Controller
   }
   public function destroy(){
     auth()->logout();
-    return redirect()->home();
+    return redirect('/');
   }
   public function store(){
     //$password=bcrypt(request('password'));
