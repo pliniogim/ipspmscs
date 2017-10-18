@@ -22,12 +22,12 @@
                 </form>
               </td>
               <td>
-              <form action="{{action('InfoController@destroy', $info->id)}}" method="post">
-                {{csrf_field()}}
-                <input name="_method" type="hidden" value="DELETE">
-                <input  type="image" onclick="return confirm('Você deseja deletar o registro?')" src="/images/ic_delete_forever_48px.svg" alt="Submit" width="16" height="16">
-              </form>
-            </td>
+                <form action="{{action('InfoController@destroy', $info->id)}}" method="post">
+                  {{csrf_field()}}
+                  <input name="_method" type="hidden" value="DELETE">
+                  <input  type="image" onclick="return confirm('Você deseja deletar o registro?')" src="/images/ic_delete_forever_48px.svg" alt="Submit" width="16" height="16">
+                </form>
+              </td>
 
             </tr>
           @endforeach

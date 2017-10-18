@@ -18,8 +18,10 @@ Route::delete('/delete/{id}','IpController@destroy');
 Route::delete('/ips/{id}/delete','InfoController@destroy');
 Route::get('/users', 'UserController@index')->name('users');
 Route::get('/users/edit/{id}', 'UserController@edit');
-Route::post('users/edit/{id}','UserController@update');
+Route::post('/users/edit/{id}','UserController@update');
 Route::delete('/users/delete/{id}','UserController@destroy');
+Route::get('/users/password/{id}', 'UserController@password');
+Route::post('/users/password/{id}', 'UserController@store');
 //use App\Ip;
 /*Route::get('/ips', function () {
 //$ips = DB::table('ips')->get();

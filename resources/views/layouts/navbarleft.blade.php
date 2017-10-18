@@ -20,8 +20,5 @@ Mousetrap.bind('v', function() {
     <li class="nav-item">
       <a id="menu3" class="nav-link" href="{{ route('users') }}">Editar Usuários</a>
     </li>
-    <li class="nav-item">
-      <a id="menu4" class="nav-link" href="{{ route('register') }}">Cadastrar Usuários</a>
-    </li>
   </ul>
 </nav>

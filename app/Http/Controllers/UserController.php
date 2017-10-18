@@ -35,11 +35,24 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $user = new User();
+        $data =$this->validate(request(), [
+          'password' => 'required|confirmed'
+        ]);
+        $data['id'] = $id;
+        $user = User::find($id);
+        $user->password = bcrypt(request('password'));
+        $user->save();
+        return redirect('users')->with('success', 'O usuário foi alterado com sucesso!');
     }
 
+    public function password($id)
+    {
+      $user = User::find($id);
+      return view('users.password', compact('user'));
+    }
     /**
      * Display the specified resource.
      *
@@ -57,9 +70,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $id)
     {
-        //
+        return view('users.edit', compact('id'));
     }
 
     /**
@@ -69,10 +82,22 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+      public function update(Request $request, $id)
+      {
+        $user = new User();
+        $data =$this->validate(request(), [
+          'nome' => 'required',
+          'email' => 'required'
+        ]);
+          $data['id'] = $id;
+          $user = User::find($id);
+          //$user->user_id = auth()->user()->id;
+          $user->nome = $data['nome'];
+          $user->email = $data['email'];
+          $user->save();
+          return redirect('users')->with('success', 'O usuário foi alterado com sucesso!');
+      }
+
 
     /**
      * Remove the specified resource from storage.
@@ -84,7 +109,7 @@ class UserController extends Controller
     {
       $user = User::find($id);
       $user->delete();
-      return back()->with('success', 'Ip foi deletado com sucesso!');
+      return redirect('users')->with('success', 'Usuário foi deletado com sucesso!');
 
     }
 }

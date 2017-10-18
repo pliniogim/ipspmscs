@@ -8,10 +8,9 @@
           <td> {{ $user->nome }}</td>
           <td> {{ $user->email }}</td>
           <td>
-            <form action="{{action('UserController@edit',$user->id)}}">
+            <form action="{{action('UserController@edit', $user->id)}}">
               {{csrf_field()}}
               <input type="image" src="/images/ic_update_48px.svg" alt="Submit" width="16" height="16">
-              <!-- <a href="{{action('UserController@edit',$user->id)}}" class="btn btn-primary" style="background: url(/images/ic_update_48px.svg)" height="30px" width="30px"></a>-->
             </form>
           </td>
           <td>
@@ -21,8 +20,26 @@
               <input  type="image" onclick="return confirm('Você deseja deletar o registro?')" src="/images/ic_delete_forever_48px.svg" alt="Submit" width="16" height="16">
             </form>
           </td>
+          <td>
+            <form action="{{action('UserController@password', $user->id)}}">
+              {{csrf_field()}}
+              <input  type="image"  src="/images/ic_lock_48px.svg" alt="Submit" width="16" height="16">
+            </form>
+          </td>
         </tr>
       @endforeach
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <form action="{{action('RegistrationController@create', $user->id)}}">
+            {{csrf_field()}}
+            <input  type="image"  src="/images/ic_person_add_48px.svg" alt="Submit" width="16" height="16">
+          </form>
+        </td>
+      </tr>
     </table>
   </div>
 </div>
