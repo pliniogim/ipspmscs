@@ -80,3 +80,33 @@ img[usemap] {
 		max-width: 100%;
 		width: auto;
 	}
+  blink, .blink {
+    -webkit-animation: blink 1s step-end infinite;
+    -moz-animation: blink 1s step-end infinite;
+    -o-animation: blink 1s step-end infinite;
+    animation: blink 1s step-end infinite;
+  }
+
+  @-webkit-keyframes blink {
+    67% { opacity: 0 }
+  }
+
+  @-moz-keyframes blink {
+    67% { opacity: 0 }
+  }
+
+  @-o-keyframes blink {
+    67% { opacity: 0 }
+  }
+
+  @keyframes blink {
+    67% { opacity: 0 }
+  }
+
+  .blink_me {
+    animation: blinker 2s linear infinite;
+  }
+
+  @keyframes blinker {
+    50% { opacity: 0; }
+  }
