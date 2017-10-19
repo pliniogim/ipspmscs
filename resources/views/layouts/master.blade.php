@@ -3,10 +3,12 @@
 @include('layouts.head')
 <body>
   @include('layouts.navbartop')
-  @if(Auth::check())
-    @include('layouts.navbarleft')
+  @if (Auth::check())
+     @include('layouts.navbarleft')
+     <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+  @else
+      <main  class="col-auto ml-sm-auto" role="main">
   @endif
-  <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
     @yield('conteudo')
   </body>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

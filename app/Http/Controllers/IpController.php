@@ -140,7 +140,7 @@ class IpController extends Controller
       return redirect('/home')->with('success', 'Ip foi deletado com sucesso!');
     }
       public function testaIp(){
-      return view('ips.testaIp');
+        return view('ips.testaIp');
     }
 
     public function execTestaIp(){
@@ -152,4 +152,20 @@ class IpController extends Controller
       $addr = $ip->testaIp($range);
       return view('ips.execTestaIp', compact('addr'));
     }
+    public function execTestaIp1(Ip $ip){
+      $this->validate(request(), [
+        'range' => 'required',
+      ]);
+      $ip = new Ip();
+      $range = request('range');
+      $addr = $ip->testaIp($range);
+      return view('ips.execTestaIp', compact('addr'));
+    }
+    public function testaIp1($id){
+      $ip = new Ip();
+      $ip = Ip::find($id);
+      list($ip1, $ip2, $ip3, $ip4) = explode(".", $ip->ip);
+      //dd($ip3);
+      return view('ips.testaIp1', compact('ip3'));
+  }
 }

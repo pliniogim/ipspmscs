@@ -22,6 +22,8 @@ Route::post('/users/edit/{id}','UserController@update');
 Route::delete('/users/delete/{id}','UserController@destroy');
 Route::get('/users/password/{id}', 'UserController@password');
 Route::post('/users/password/{id}', 'UserController@store');
+Route::get('/testaip1/{id}', 'IpController@testaIp1')->name('testaip1');
+Route::post('/testaip1', 'IpController@execTestaIp1');
 Route::get('/testaip', 'IpController@testaIp')->name('testaip');
 Route::post('/testaip', 'IpController@execTestaIp');
 //use App\Ip;

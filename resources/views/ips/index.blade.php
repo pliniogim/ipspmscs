@@ -14,12 +14,11 @@
     </thead>
     @foreach($ips as $ip)
       <tbody>
-        <td>
-          <a href="/ips/{{ $ip->id}}">
+        <td style="color: gray;">
             {{ $ip->ip }}
           </a>
         </td>
-        <td>
+        <td style="color: gray;">
           {{  $ip->local }}
         </td>
       @endforeach
