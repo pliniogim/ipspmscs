@@ -139,6 +139,7 @@ class IpController extends Controller
       $ip->delete();
       return redirect('/home')->with('success', 'Ip foi deletado com sucesso!');
     }
+    
       public function testaIp(){
         return view('ips.testaIp');
     }

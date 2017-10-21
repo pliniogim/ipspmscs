@@ -3,7 +3,7 @@
   <table>
     <tr>
       <td style="border:0">
-        <h2>Editar Usuários</h2>
+        <h2>Usuários</h2>
       </td>
       <td style="border:0">
         <div class="btn float-right">

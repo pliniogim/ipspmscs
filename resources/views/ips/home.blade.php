@@ -2,7 +2,7 @@
 @section('conteudo')
   <table >
     <tr>
-      <td style="border:0"> <h2>Editar Ips</h2> </td>
+      <td style="border:0"> <h2>Redes</h2> </td>
       <td style="border:0">
         <div class="btn float-right">
           <form action="{{action('IpController@create')}}">

@@ -2,7 +2,7 @@
 @section('conteudo')
   <table >
     <tr>
-      <td style="border:0"> <h2>Editar Ativos</h2> </td>
+      <td style="border:0"> <h2>Ativos</h2> </td>
       <td style="border:0">
         <div class="btn float-right">
           <form action="{{action('AtivoController@create')}}">
@@ -17,7 +17,7 @@
   <table>
     <tr>
       <thead>
-        <td style="font-weight:bold">Id/Local</td>
+        <td style="font-weight:bold">Ip/Local</td>
         <td style="font-weight:bold" colspan="4">Ações</td>
       </thead>
     </tr>
@@ -25,7 +25,7 @@
       <tbody>
         <tr>
           <td style="border:0">
-            <a href="/ativos/{{ $ativo->id}}">
+            <a href="{{action('AtivoController@show',$ativo->id)}}">
               {{ $ativo->enderecoip }}
             </a>
           </td>

@@ -20,13 +20,13 @@ class CreateAtivosTable extends Migration
             $table->string('telefone');
             $table->string('modelo');
             $table->date('ano');
-            $table->string('nserie')->unique();
+            $table->string('nserie');
             $table->string('descricao');
             $table->string('aplicacao');
             $table->string('enderecoip');
             $table->string('local');
             $table->string('responsavel');
-            $table->string('usuário');
+            $table->string('usuario');
             $table->string('senha');
             $table->string('protocolo1');
             $table->string('protocolo2');

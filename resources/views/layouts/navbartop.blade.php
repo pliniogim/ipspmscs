@@ -35,10 +35,7 @@
     </li>
     @if(Auth::check())
       <li class="nav-item">
-        <a  class="nav-link" href="/home">Ips</a>
-      </li>
-      <li class="nav-item">
-        <a  class="nav-link" href="/testaip">Pings</a>
+        <a  class="nav-link" href="/home">Redes</a>
       </li>
       <li class="nav-item">
         <a  class="nav-link" href="/ativos">Ativos</a>
@@ -46,7 +43,9 @@
       <li class="nav-item">
         <a  class="nav-link" href="/users">Usuários</a>
       </li>
-
+      <li class="nav-item">
+        <a  class="nav-link" href="/testaip">Pings</a>
+      </li>
     @endif
   </ul>
 
