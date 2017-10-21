@@ -7,7 +7,7 @@
 @section('conteudo')
   <h2>Pingar Range de Ips</h2>
   <hr>
-  <form onsubmit="blinktexto()" name="formtesta" id="formtesta" method="POST" action="/testaip1">
+  <form onsubmit="blinktexto()" name="formtesta" id="formtesta" method="POST" action="/testaip2">
     {{ csrf_field() }}
     <div class="form-group">
       <label for="InputRange">Pingando o range de Ips: 192.168.{{ $ip3}}.0/24</label>

@@ -1,10 +1,16 @@
 @extends('layouts.master')
+@section('conteudo')
 <style>
 .blink_me {animation: blinker 2s linear infinite;}
 @keyframes blinker {50% { opacity: 0; }}
 </style>
-@section('conteudo')
-  <h2>Pingar Range de Ips</h2>
+  <table >
+    <tr>
+      <td style="border:0"> <h2>Pingar Range de Ips</h2> </td>
+      <td style="border:0">
+      </td>
+    </tr>
+  </table>
   <hr>
   <form onsubmit="blinktexto()" id="formtesta" method="POST" action="/testaip">
     {{ csrf_field() }}

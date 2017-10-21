@@ -21,8 +21,7 @@
     <tr>
       <thead>
         <td style="font-weight:bold">IP/Local</td>
-        <td></td>
-        <td style="font-weight:bold" colspan="3">Ações</td>
+        <td style="font-weight:bold" colspan="4">Ações</td>
       </thead>
     </tr>
 
@@ -44,6 +43,12 @@
             <form action="{{action('IpController@testaIp1',$ip->id)}}">
               {{csrf_field()}}
               <input title="Pinga Range" type="image" src="/images/ic_check_box_48px.svg" alt="Submit" width="28" height="28">
+            </form>
+          </td>
+          <td rowspan="2">
+            <form action="{{action('IpController@testaIp2',$ip->id)}}">
+              {{csrf_field()}}
+              <input title="Fast Ping Range" type="image" src="/images/ic_fastcheck_box_48px.png" alt="Submit" width="28" height="28">
             </form>
           </td>
           <td rowspan="2">

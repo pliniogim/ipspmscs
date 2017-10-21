@@ -38,10 +38,13 @@
         <a  class="nav-link" href="/home">Ips</a>
       </li>
       <li class="nav-item">
-        <a  class="nav-link" href="/users">Usuários</a>
+        <a  class="nav-link" href="/testaip">Pings</a>
       </li>
       <li class="nav-item">
-        <a  class="nav-link" href="/testaip">Pings</a>
+        <a  class="nav-link" href="/ativos">Ativos</a>
+      </li>
+      <li class="nav-item">
+        <a  class="nav-link" href="/users">Usuários</a>
       </li>
 
     @endif

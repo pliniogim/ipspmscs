@@ -8,7 +8,7 @@
         <hr>
       </div>
       <br>
-      <strong><p>Ips ativos:</p></strong>
+      <strong><p>Ips ativos: </p></strong>
       <div>
         <table>
           <thead><tr><td>IP</td></tr></thead>

@@ -152,13 +152,22 @@ class IpController extends Controller
       $addr = $ip->testaIp($range);
       return view('ips.execTestaIp', compact('addr'));
     }
-    public function execTestaIp1(Ip $ip){
+    public function execTestaIp1(){
       $this->validate(request(), [
         'range' => 'required',
       ]);
       $ip = new Ip();
       $range = request('range');
-      $addr = $ip->testaIp($range);
+      $addr = $ip->testaIp1($range);
+      return view('ips.execTestaIp', compact('addr'));
+    }
+    public function execTestaIp2(Ip $ip){
+      $this->validate(request(), [
+        'range' => 'required',
+      ]);
+      $ip = new Ip();
+      $range = request('range');
+      $addr = $ip->testaIp2($range);
       return view('ips.execTestaIp', compact('addr'));
     }
     public function testaIp1($id){
@@ -168,4 +177,11 @@ class IpController extends Controller
       //dd($ip3);
       return view('ips.testaIp1', compact('ip3'));
   }
+  public function testaIp2($id){
+    $ip = new Ip();
+    $ip = Ip::find($id);
+    list($ip1, $ip2, $ip3, $ip4) = explode(".", $ip->ip);
+    //dd($ip3);
+    return view('ips.testaIp2', compact('ip3'));
+}
 }

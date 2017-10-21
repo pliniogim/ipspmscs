@@ -20,14 +20,12 @@
       <thead>
         <tr>
           <td style="font-weight:bold">Nome/Email</td>
-          <td></td>
-          <td style="font-weight:bold" colspan="3">Ações</td>
+          <td style="font-weight:bold" colspan="4">Ações</td>
         </thead>
       </tr>
     </thead>
     <tbody>
       @foreach ($users as $user)
-
         <tr>
           <td style="border:0"> {{ $user->nome }}</td>
           <td rowspan="2">

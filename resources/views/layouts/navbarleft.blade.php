@@ -15,10 +15,13 @@ Mousetrap.bind('v', function() {
       <a id="menu1" class="nav-link" href="{{ route('home') }}">Ips</a>
     </li>
     <li class="nav-item">
-      <a id="menu2" class="nav-link" href="{{ route('users') }}">Usuários</a>
+      <a id="menu2" class="nav-link" href="{{ route('testaip') }}">Pings</a>
     </li>
     <li class="nav-item">
-      <a id="menu3" class="nav-link" href="{{ route('testaip') }}">Pings</a>
+      <a id="menu3" class="nav-link" href="{{ route('ativos') }}">Ativos</a>
+    </li>
+    <li class="nav-item">
+      <a id="menu4" class="nav-link" href="{{ route('users') }}">Usuários</a>
     </li>
 </ul>
 </nav>
