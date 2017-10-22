@@ -1,27 +1,40 @@
 @extends('layouts.master')
+
 @section('conteudo')
+
+  @include('layouts.menssuccess')
+
   <h2>Home</h2>
+
   @include('layouts.errors')
-  <script>
-  document.getElementById("menu1").className = "nav-link active";
-  </script>
+
   <table>
+
     <tr>
+
       <thead>
         <td>IP</td>
         <td>Local</td>
-      </tr>
-    </thead>
+      </thead>
+
+    </tr>
+
     @foreach($ips as $ip)
+      
       <tbody>
+
         <td style="color: gray;">
-            {{ $ip->ip }}
-          </a>
+          {{ $ip->ip }}
         </td>
+
         <td style="color: gray;">
           {{  $ip->local }}
         </td>
+
       @endforeach
+
     </tbody>
+
   </table>
+
 @endsection

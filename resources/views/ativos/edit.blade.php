@@ -1,7 +1,13 @@
 @extends('layouts.master')
+
 @section('conteudo')
+
+  @include('layouts.menssuccess')
+
   <h2>Editar Ativos</h2>
+
   <form method="POST" action="{{action('AtivoController@update', $id)}}">
+
     {{ csrf_field() }}
 
     <div class="form-group">
@@ -148,7 +154,6 @@
       oninput="setCustomValidity('')" required>
     </div>
 
-
     <div class="form-group">
       <label for="descportas">Descrição Portas</label>
       <input type="text"  value="{{ $id->descportas }}" maxlength="80" class="form-control" id="descportas" name="descportas" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
@@ -162,8 +167,11 @@
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <button type="submit" class="btn btn-primary">Atualizar</button>
     </div>
+
     @include('layouts.errors')
+
   </form>
+
 @endsection

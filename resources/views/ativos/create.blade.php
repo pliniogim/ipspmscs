@@ -1,7 +1,13 @@
 @extends('layouts.master')
+
 @section('conteudo')
+
+  @include('layouts.menssuccess')
+
   <h2>Cadastrar Ativos</h2>
+
   <form method="POST" action="/ativos/create">
+
     {{ csrf_field() }}
 
     <div class="form-group">
@@ -148,7 +154,6 @@
       oninput="setCustomValidity('')" required>
     </div>
 
-
     <div class="form-group">
       <label for="descportas">Descrição Portas</label>
       <input type="text"  maxlength="80" class="form-control" id="descportas" name="descportas" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
@@ -164,6 +169,9 @@
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Cadastrar</button>
     </div>
+
     @include('layouts.errors')
+
   </form>
+
 @endsection

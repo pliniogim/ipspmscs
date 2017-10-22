@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Ativo;
+
 class AtivoController extends Controller
 {
+
+  /**
+  * construtor middleware: todas os métodos somente com autenticação
+  */
   public function __construct(){
     $this->middleware('auth');
   }
@@ -18,7 +24,6 @@ class AtivoController extends Controller
   public function index()
   {
     $ativos = Ativo::all();
-    //dd($ativos);
     return view('ativos.index', compact('ativos'));
   }
 
@@ -40,6 +45,7 @@ class AtivoController extends Controller
   */
   public function store(Request $request)
   {
+
     $this->validate(request(), [
       'fabricante' => 'required',
       'contato' => 'required',
@@ -68,6 +74,7 @@ class AtivoController extends Controller
       'descportas' => 'required',
       'observacoes' => 'required'
     ]);
+
     $ativo = new Ativo();
     $ativo->fabricante = request('fabricante');
     $ativo->contato = request('contato');
@@ -95,13 +102,18 @@ class AtivoController extends Controller
     $ativo->portas = request('portas');
     $ativo->descportas = request('descportas');
     $ativo->observacoes = request('observacoes');
+
     $ativo->save();
+
     return redirect('/ativos')->with('success', 'Ativo foi criado com sucesso!');
+
   }
 
+  /**
+  * Lista os dados do ativo selecionado
+  */
   public function show(Ativo $id) //tem que ser o mesmo nome do wildcard da URI
   {
-    //dd($id);
     return view('ativos.show', compact('id'));
   }
 
@@ -115,6 +127,7 @@ class AtivoController extends Controller
   {
     return view('ativos.edit', compact('id'));
   }
+
   /**
   * Update the specified resource in storage.
   *
@@ -124,6 +137,7 @@ class AtivoController extends Controller
   */
   public function update(Request $request, $id)
   {
+
     $data =$this->validate(request(), [
       'fabricante' => 'required',
       'contato' => 'required',
@@ -151,8 +165,11 @@ class AtivoController extends Controller
       'portas' => 'required',
       'descportas' => 'required',
       'observacoes' => 'required'    ]);
+
       $data['id'] = $id;
+
       $ativo = Ativo::find($id);
+
       $ativo->fabricante = request('fabricante');
       $ativo->contato = request('contato');
       $ativo->telefone = request('telefone');
@@ -179,8 +196,11 @@ class AtivoController extends Controller
       $ativo->portas = request('portas');
       $ativo->descportas = request('descportas');
       $ativo->observacoes = request('observacoes');
+
       $ativo->save();
+
       return redirect('/ativos')->with('success', 'O ativo foi alterado com sucesso!');
+
   }
 
   /**
@@ -195,4 +215,5 @@ class AtivoController extends Controller
     $ativo->delete();
     return redirect('/ativos')->with('success', 'Ativo foi deletado com sucesso!');
   }
+  
 }
