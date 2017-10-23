@@ -24,6 +24,27 @@
 
       @endif
 
+      @if(Auth::check())
+
+        <li class="nav-item">
+          <a  class="nav-link" href="/home">Redes</a>
+        </li>
+
+        <li class="nav-item">
+          <a  class="nav-link" href="/ativos">Ativos</a>
+        </li>
+
+        <li class="nav-item">
+          <a  class="nav-link" href="/users">Usuários</a>
+        </li>
+
+        <li class="nav-item">
+          <a  class="nav-link" href="/testaip">Pings</a>
+
+        </li>
+
+      @endif
+
       <li class="nav-item">
         <a id="menud" class="nav-link" href="/login">Login</a>
       </li>
@@ -50,27 +71,6 @@
         @endif
 
       </li>
-
-      @if(Auth::check())
-
-        <li class="nav-item">
-          <a  class="nav-link" href="/home">Redes</a>
-        </li>
-
-        <li class="nav-item">
-          <a  class="nav-link" href="/ativos">Ativos</a>
-        </li>
-
-        <li class="nav-item">
-          <a  class="nav-link" href="/users">Usuários</a>
-        </li>
-
-        <li class="nav-item">
-          <a  class="nav-link" href="/testaip">Pings</a>
-
-        </li>
-
-      @endif
 
     </ul>
 
