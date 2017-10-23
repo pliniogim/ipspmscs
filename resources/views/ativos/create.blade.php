@@ -24,7 +24,7 @@
 
     <div class="form-group">
       <label for="telefone">Telefone</label>
-      <input type="text" maxlength="40" class="form-control"  id="telefone"  name="telefone" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
+      <input type="text" placeholder="(xx)xxxx-xxxx" pattern="[\(]\d{2}[\)]\d{4}[\-]\d{4}" maxlength="40" class="form-control"  id="telefone"  name="telefone" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
       oninput="setCustomValidity('')" required>
     </div>
 

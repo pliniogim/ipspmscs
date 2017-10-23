@@ -45,7 +45,6 @@
           <script>
           document.getElementById("menud").innerHTML="Login";
           document.getElementById("menud").href="/login";
-          document.getElementById("menue").style.visibility="visible";
           </script>
 
         @endif

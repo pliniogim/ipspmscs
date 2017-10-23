@@ -24,7 +24,7 @@
 
     <div class="form-group">
       <label for="InputIp">Range de Ips</label>
-      <input type="text" maxlength="18" class="form-control" id="InputIp"  name="ip" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
+      <input type="text" maxlength="18" placeholder="xxx.xxx.xxx.xxx/xx" pattern="((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}/(?:\d|[12]\d|3[01])$" class="form-control" id="InputIp"  name="ip" oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
       oninput="setCustomValidity('')" required>
     </div>
 

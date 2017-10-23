@@ -3,10 +3,18 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+  use SoftDeletes;
+
+  protected $dates = ['deleted_at'];
+
   use Notifiable;
 
   /**
@@ -25,7 +33,7 @@ class User extends Authenticatable
   */
   protected $hidden = [
     'password', 'remember_token',
-  ];  
+  ];
   public function ip(){
     return $this->hasMany(Ip::class);
   }

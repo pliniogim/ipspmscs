@@ -41,6 +41,7 @@ class CreateAtivosTable extends Migration
             $table->integer('portas');
             $table->string('descportas');
             $table->string('observacoes');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
