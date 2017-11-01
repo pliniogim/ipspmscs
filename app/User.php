@@ -14,6 +14,7 @@ class User extends Authenticatable
   use SoftDeletes;
 
   protected $dates = ['deleted_at'];
+  protected $guarded = [];
 
   use Notifiable;
 

@@ -12,6 +12,7 @@ class Ip extends Model
   use SoftDeletes;
 
   protected $dates = ['deleted_at'];
+  protected $guarded = [];
 
   public function infos(){
     return $this->hasMany(Info::class);
