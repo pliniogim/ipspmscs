@@ -46,3 +46,6 @@ Route::get('/testaip2/{id}', 'IpController@testaIp2')->name('testaip2');
 Route::post('/testaip2', 'IpController@execTestaIp2');
 Route::get('/testaip', 'IpController@testaIp')->name('testaip');
 Route::post('/testaip', 'IpController@execTestaIp');
+
+//API
+Route::resource('api/redes', 'RedesController');

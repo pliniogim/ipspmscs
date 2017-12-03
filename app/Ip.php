@@ -53,6 +53,7 @@ class Ip extends Model
     //dd($addr, $ipm, $status, $pingresult);
     return ($addr);
   }
+  
   public function testaIp2($ip){
     $addr = array();
     for ($z=1;$z<255;$z++){

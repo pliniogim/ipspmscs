@@ -31,7 +31,7 @@
     <tr>
       <thead>
         <td style="font-weight:bold">IP/Local</td>
-        <td style="font-weight:bold" colspan="4">Ações</td>
+        <td style="font-weight:bold" colspan="5">Ações</td>
       </thead>
     </tr>
 
@@ -75,6 +75,10 @@
             </form>
           </td>
 
+          <td rowspan="2">
+            <img id="rede{{ $ip->id }}" src="" alt="Rede" width="28" height="28">
+          </td>
+
         </tr>
 
         <tr>
@@ -90,5 +94,43 @@
     </tbody>
 
   </table>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
+  </script>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    //pega tag dos elementos img da página
+    var images = document.getElementsByTagName('img');
+    //troca imagens para offline
+    for(var i = 0; i < images.length; i++)
+    {
+      $(images[i]).attr("src","/images/ic_signal_off.svg");
+    }
+
+    for(var i=0; i < images.length; i++)
+    {
+      var item = $(images[i]).attr('id').replace('rede','');
+      verAtiva(item);
+    }
+
+    // verifica rede por api
+    function verAtiva(item){
+      $.ajax({
+        method:'GET',
+        url:'http://192.168.0.100:82/api/redes',
+        data: {item: item}
+      }).done(function(resposta){
+        var images = document.getElementsByTagName('img');
+        itemc = "rede"+resposta;
+        if(resposta !== "Inativo") {
+          $(images[itemc]).attr("src","/images/ic_signal_on.svg"); }
+        //location.reload();
+      });
+    }
+
+
+  });
+  </script>
 
 @endsection
