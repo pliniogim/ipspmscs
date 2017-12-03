@@ -23,10 +23,9 @@ class RedesController extends Controller
       {
         $response = $rede;
         return $response;
-      } else {
-        $response = 'Inativo';
-        return $response;
       }
     }
+    $response = 'Inativo';
+    return $response;
   }
 }
